@@ -1,6 +1,6 @@
 {
   "name": "react-swipe-me",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "This is a simple ReactJS library that solves your problem with creating swipeable menu, clipboards and everything you want.",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,20 @@
     "url": "git+https://github.com/KonradWrbl/React-Swipe-Me.git"
   },
   "author": "Konrad Wróblewski",
+  "keywords": [
+    "reactjs",
+    "javascript",
+    "ui",
+    "Component",
+    "web",
+    "app",
+    "frontend",
+    "component",
+    "js",
+    "swipe",
+    "slide",
+    "menu"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/KonradWrbl/React-Swipe-Me/issues"
