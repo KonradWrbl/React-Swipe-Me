@@ -59,7 +59,6 @@ const SwipeMe = ({ children, hide, position = "bottom", handle = 20 }) => {
             case 'left':
                 setDiff(-(startPosY - e.touches[0].screenX));
                 setIsDragged(true);
-                console.log(diff)
                 break;
         }
     };
@@ -135,7 +134,6 @@ const SwipeMe = ({ children, hide, position = "bottom", handle = 20 }) => {
             case 'left':
                 if (swipeableEl.current) {
                     setSwipeableDivSizeX(swipeableEl.current.offsetWidth);
-                    console.log(swipeableDivSizeX)
                 }
                 break;
         }
