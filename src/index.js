@@ -6,12 +6,12 @@ const StyledSwiper = styled.div`
 	position: fixed;
 
     ${({ pos, trans }) =>
-        pos === 'down' && css`
+        pos === 'bottom' && css`
             bottom: 0px;
             width: 100vw;
             transform: translateY(${trans});
         `
-        || pos === 'up' && css`
+        || pos === 'top' && css`
             top: 0px;
             width: 100vw;
             transform: translateY(${trans});
@@ -36,7 +36,7 @@ const StyledSwiper = styled.div`
 `;
 
 
-const SwipeMe = ({ children, hide, position = "down", handle = 20 }) => {
+const SwipeMe = ({ children, hide, position = "bottom", handle = 20 }) => {
 
     const [startPosY, setStartPosY] = useState(0);
     const [diff, setDiff] = useState(0);
@@ -50,8 +50,8 @@ const SwipeMe = ({ children, hide, position = "down", handle = 20 }) => {
     const onTouchMove = (e) => {
         switch (position) {
             default:
-            case 'down':
-            case 'up':
+            case 'bottom':
+            case 'top':
                 setDiff(-(startPosY - e.touches[0].screenY));
                 setIsDragged(true);
                 break;
@@ -67,8 +67,8 @@ const SwipeMe = ({ children, hide, position = "down", handle = 20 }) => {
     const getStartPos = (e) => {
         switch (position) {
             default:
-            case 'down':
-            case 'up':
+            case 'bottom':
+            case 'top':
                 setStartPosY(e.touches[0].screenY);
                 break;
             case 'right':
@@ -82,7 +82,7 @@ const SwipeMe = ({ children, hide, position = "down", handle = 20 }) => {
         setIsDragged(false);
         switch (position) {
             default:
-            case 'down':
+            case 'bottom':
                 if (diff > swipeableDivSizeY / 2) {
                     setIsHidden(true);
                     setDiff(swipeableDivSizeY);
@@ -91,8 +91,8 @@ const SwipeMe = ({ children, hide, position = "down", handle = 20 }) => {
                     setDiff(0);
                 }
                 break
-            case 'up':
-                if (Math.abs(diff) > swipeableDivSizeY / 2) {
+            case 'top':
+                if (diff < -swipeableDivSizeY / 2) {
                     setIsHidden(true);
                     setDiff(0);
                 } else {
@@ -110,7 +110,7 @@ const SwipeMe = ({ children, hide, position = "down", handle = 20 }) => {
                 }
                 break
             case 'left':
-                if (Math.abs(diff) > swipeableDivSizeX / 2) {
+                if (diff < -swipeableDivSizeX / 2) {
                     setIsHidden(true);
                     setDiff(0);
                 } else {
@@ -125,8 +125,8 @@ const SwipeMe = ({ children, hide, position = "down", handle = 20 }) => {
     useEffect(() => {
         switch (position) {
             default:
-            case 'down':
-            case 'up':
+            case 'bottom':
+            case 'top':
                 if (swipeableEl.current) {
                     setSwipeableDivSizeY(swipeableEl.current.offsetHeight);
                 }
@@ -149,13 +149,13 @@ const SwipeMe = ({ children, hide, position = "down", handle = 20 }) => {
     const swipeable = () => {
         switch (position) {
             default:
-            case 'down':
+            case 'bottom':
                 return isHidden
                     ? diff > 0
                         ? swipeableDivSizeY - handle
                         : Math.max(swipeableDivSizeY - handle + diff, 0)
                     : Math.max(diff, 0)
-            case 'up':
+            case 'top':
                 return isHidden ?
                     diff < 0 ?
                         -swipeableDivSizeY + handle

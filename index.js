@@ -82,14 +82,14 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 var StyledSwiper = _styledComponents["default"].div(_templateObject(), function (_ref) {
   var pos = _ref.pos,
       trans = _ref.trans;
-  return pos === 'down' && (0, _styledComponents.css)(_templateObject2(), trans) || pos === 'up' && (0, _styledComponents.css)(_templateObject3(), trans) || pos === 'right' && (0, _styledComponents.css)(_templateObject4(), trans) || pos === 'left' && (0, _styledComponents.css)(_templateObject5(), trans);
+  return pos === 'bottom' && (0, _styledComponents.css)(_templateObject2(), trans) || pos === 'top' && (0, _styledComponents.css)(_templateObject3(), trans) || pos === 'right' && (0, _styledComponents.css)(_templateObject4(), trans) || pos === 'left' && (0, _styledComponents.css)(_templateObject5(), trans);
 });
 
 var SwipeMe = function SwipeMe(_ref2) {
   var children = _ref2.children,
       hide = _ref2.hide,
       _ref2$position = _ref2.position,
-      position = _ref2$position === void 0 ? "down" : _ref2$position,
+      position = _ref2$position === void 0 ? "bottom" : _ref2$position,
       _ref2$handle = _ref2.handle,
       handle = _ref2$handle === void 0 ? 20 : _ref2$handle;
 
@@ -128,8 +128,8 @@ var SwipeMe = function SwipeMe(_ref2) {
   var onTouchMove = function onTouchMove(e) {
     switch (position) {
       default:
-      case 'down':
-      case 'up':
+      case 'bottom':
+      case 'top':
         setDiff(-(startPosY - e.touches[0].screenY));
         setIsDragged(true);
         break;
@@ -146,8 +146,8 @@ var SwipeMe = function SwipeMe(_ref2) {
   var getStartPos = function getStartPos(e) {
     switch (position) {
       default:
-      case 'down':
-      case 'up':
+      case 'bottom':
+      case 'top':
         setStartPosY(e.touches[0].screenY);
         break;
 
@@ -163,7 +163,7 @@ var SwipeMe = function SwipeMe(_ref2) {
 
     switch (position) {
       default:
-      case 'down':
+      case 'bottom':
         if (diff > swipeableDivSizeY / 2) {
           setIsHidden(true);
           setDiff(swipeableDivSizeY);
@@ -174,8 +174,8 @@ var SwipeMe = function SwipeMe(_ref2) {
 
         break;
 
-      case 'up':
-        if (Math.abs(diff) > swipeableDivSizeY / 2) {
+      case 'top':
+        if (diff < -swipeableDivSizeY / 2) {
           setIsHidden(true);
           setDiff(0);
         } else {
@@ -197,7 +197,7 @@ var SwipeMe = function SwipeMe(_ref2) {
         break;
 
       case 'left':
-        if (Math.abs(diff) > swipeableDivSizeX / 2) {
+        if (diff < -swipeableDivSizeX / 2) {
           setIsHidden(true);
           setDiff(0);
         } else {
@@ -212,8 +212,8 @@ var SwipeMe = function SwipeMe(_ref2) {
   (0, _react.useEffect)(function () {
     switch (position) {
       default:
-      case 'down':
-      case 'up':
+      case 'bottom':
+      case 'top':
         if (swipeableEl.current) {
           setSwipeableDivSizeY(swipeableEl.current.offsetHeight);
         }
@@ -237,10 +237,10 @@ var SwipeMe = function SwipeMe(_ref2) {
   var swipeable = function swipeable() {
     switch (position) {
       default:
-      case 'down':
+      case 'bottom':
         return isHidden ? diff > 0 ? swipeableDivSizeY - handle : Math.max(swipeableDivSizeY - handle + diff, 0) : Math.max(diff, 0);
 
-      case 'up':
+      case 'top':
         return isHidden ? diff < 0 ? -swipeableDivSizeY + handle : Math.min(-swipeableDivSizeY + handle + diff, 0) : Math.min(diff, 0);
 
       case 'right':
