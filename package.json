@@ -12,7 +12,7 @@
     "url": "git+https://github.com/KonradWrbl/React-Swipe-Me.git"
   },
   "author": "Konrad Wróblewski",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/KonradWrbl/React-Swipe-Me/issues"
   },
