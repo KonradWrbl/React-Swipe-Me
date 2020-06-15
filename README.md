@@ -2,12 +2,12 @@
 
 This is a simple ReactJS library that solves your problem with creating swipeable menus, clipboards and everything you want. With this library you can easly create component that is swipeable from every screen edge. All you have to do is install library, import it and create SwipeMe component with your children and many props.
 
-SwipeMe component can be controlled by click on desktop and fully swiped by touching on cell phone.
+SwipeMe component can be controlled by click on desktop and fully swiped by touching on your touch devices.
 
 
 ## Installation
 
-There is two different ways to install SwipeMe
+There are two different ways to install SwipeMe
 
 with Yarn:
 
